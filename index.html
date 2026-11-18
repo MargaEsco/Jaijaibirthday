@@ -9,9 +9,7 @@
 <style>
 @import url('https://fonts.googleapis.com/css?family=Lato:700,700italic');
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html, body {
   width: 100%;
@@ -51,11 +49,10 @@ body {
 .velas {
   background: #fff;
   border-radius: 10px;
-  position: absolute;
-  top: calc(50% - 31px);
+  position: fixed;
   left: 50%;
+  top: 0;
   margin-left: -2.4px;
-  margin-top: 0;
   width: 5px;
   height: 40px;
   transform: translateY(calc(-100vh - 100px));
@@ -74,15 +71,8 @@ body {
   height: 2.2px;
 }
 
-.velas:after {
-  top: 25%;
-  left: 0;
-}
-
-.velas:before {
-  top: 45%;
-  left: 0;
-}
+.velas:after { top: 25%; left: 0; }
+.velas:before { top: 45%; left: 0; }
 
 /* FLAME */
 .fuego {
@@ -96,37 +86,22 @@ body {
   transform-origin: 50% 100%;
 }
 
-.fuego:nth-child(2) {
-  animation: fuego 2s 6.5s infinite;
-}
-
-.fuego:nth-child(3) {
-  animation: fuego 1.5s 6.5s infinite;
-}
-
-.fuego:nth-child(4) {
-  animation: fuego 1s 6.5s infinite;
-}
-
-.fuego:nth-child(5) {
-  animation: fuego .5s 6.5s infinite;
-}
-
-.fuego:nth-child(6) {
-  animation: fuego .2s 6.5s infinite;
-}
+.fuego:nth-child(2) { animation: fuego 2s 6.5s infinite; }
+.fuego:nth-child(3) { animation: fuego 1.5s 6.5s infinite; }
+.fuego:nth-child(4) { animation: fuego 1s 6.5s infinite; }
+.fuego:nth-child(5) { animation: fuego .5s 6.5s infinite; }
+.fuego:nth-child(6) { animation: fuego .2s 6.5s infinite; }
 
 @keyframes fuego {
   0%, 100% {
-    background: rgba(254, 248, 97, .8);
-    box-shadow: 0 0 25px 8px rgba(248, 233, 209, .35);
+    background: rgba(254,248,97,.8);
+    box-shadow: 0 0 25px 8px rgba(248,233,209,.35);
     transform: translateY(0) scale(1);
   }
-
   50% {
-    background: rgba(255, 90, 20, .5);
-    box-shadow: 0 0 25px 12px rgba(248, 233, 209, .3);
-    transform: translateY(-8px) scale(.75, .85);
+    background: rgba(255,90,20,.5);
+    box-shadow: 0 0 25px 12px rgba(248,233,209,.3);
+    transform: translateY(-8px) scale(.75,.85);
   }
 }
 
@@ -136,26 +111,19 @@ body {
     transform: translateY(calc(-100vh - 100px));
     opacity: 0;
   }
-
-  4% {
-    opacity: 1;
-  }
-
+  4% { opacity: 1; }
   86% {
     transform: translateY(0);
     opacity: 1;
   }
-
   93% {
     transform: translateY(-4px);
     opacity: 1;
   }
-
   97% {
     transform: translateY(1px);
     opacity: 1;
   }
-
   100% {
     transform: translateY(0);
     opacity: 1;
@@ -166,7 +134,7 @@ body {
 .wick {
   position: absolute;
   top: -8px;
-  left: 60%;
+  left: 50%;
   width: 2px;
   height: 10px;
   transform: translateX(-50%);
@@ -175,7 +143,7 @@ body {
   z-index: 4;
 }
 
-/* BLOW OUT THE FLAME */
+/* BLOW OUT */
 body.blown .fuego {
   animation: none !important;
   opacity: 0;
@@ -247,9 +215,7 @@ body.blown .text {
 }
 
 @keyframes fadein {
-  to {
-    opacity: 1;
-  }
+  to { opacity: 1; }
 }
 
 /* SMOKE */
@@ -260,7 +226,7 @@ body.blown .text {
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, .8);
+  background: rgba(255,255,255,.8);
   filter: blur(2px);
   pointer-events: none;
   animation: smoke 1.7s ease-out forwards;
@@ -270,7 +236,7 @@ body.blown .text {
 @keyframes smoke {
   to {
     opacity: 0;
-    transform: translate(12px, -60px) scale(3);
+    transform: translate(12px,-60px) scale(3);
   }
 }
 
@@ -311,9 +277,7 @@ body.blown .letter-button {
   transition-delay: 1.5s;
 }
 
-.letter-button:hover {
-  background: #ffe6f0;
-}
+.letter-button:hover { background: #ffe6f0; }
 
 /* LETTER OVERLAY */
 .letter-overlay {
@@ -323,7 +287,7 @@ body.blown .letter-button {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background: rgba(70, 25, 50, .45);
+  background: rgba(70,25,50,.45);
   opacity: 0;
   visibility: hidden;
   transition: opacity .4s ease, visibility .4s ease;
@@ -338,7 +302,7 @@ body.blown .letter-button {
 /* LETTER CARD */
 .letter-card {
   position: relative;
-  width: min(440px, 100%);
+  width: min(440px,100%);
   max-height: 80vh;
   overflow-y: auto;
   padding: 35px 25px;
@@ -352,9 +316,7 @@ body.blown .letter-button {
   font-family: 'Lato', sans-serif;
 }
 
-.letter-overlay.show .letter-card {
-  transform: scale(1);
-}
+.letter-overlay.show .letter-card { transform: scale(1); }
 
 .letter-card h2 {
   margin-top: 5px;
@@ -381,38 +343,23 @@ body.blown .letter-button {
   cursor: pointer;
 }
 
-/* MOBILE / SHORT SCREENS */
+/* SHORT SCREENS */
 @media (max-height: 650px) {
   #cake {
-    width: min(280px, 72vw);
-    transform: translate(-50%, calc(-50% - 250px));
+    width: min(280px,72vw);
+    transform: translate(-50%,calc(-50% - 250px));
   }
 
-  .velas {
-    top: calc(100% - 60px);
-    height: 60px;
-  }
-
-  .text {
-    top: calc(100% - 170px);
-  }
-
-  .hint {
-    top: calc(100% - 155px);
-  }
-
-  .letter-button {
-    top: calc(100% - 95px);
-  }
+  .text { top: calc(100% - 170px); }
+  .hint { top: calc(100% - 155px); }
+  .letter-button { top: calc(100% - 95px); }
 }
 
 @media (max-width: 480px) {
-  #cake {
-    width: min(320px, 88vw);
-  }
+  #cake { width: min(320px,88vw); }
 
   .text h1 {
-    font-size: clamp(1.6rem, 7vw, 2.2rem);
+    font-size: clamp(1.6rem,7vw,2.2rem);
   }
 
   .hint {
@@ -420,9 +367,7 @@ body.blown .letter-button {
     padding: 0 16px;
   }
 
-  .letter-card {
-    padding: 35px 20px;
-  }
+  .letter-card { padding: 35px 20px; }
 }
 </style>
 </head>
@@ -455,15 +400,10 @@ body.blown .letter-button {
 
   <path fill="#f28da8" d="M173.667-13.94c-49.298,0-102.782,0-147.334,0c-3.999,0-4-16.002,0-16.002
 c44.697,0,96.586,0,147.334,0C177.667-29.942,177.668-13.94,173.667-13.94z">
-    <animate id="bizcocho_3"
-      attributeName="d"
-      calcMode="spline"
-      keySplines="0 0 1 1; 0 0 1 1"
-      begin="relleno_2.end"
-      dur="0.3s"
+    <animate id="bizcocho_3" attributeName="d" calcMode="spline"
+      keySplines="0 0 1 1; 0 0 1 1" begin="relleno_2.end" dur="0.3s"
       fill="freeze"
-      values="
-M173.667-13.94c-49.298,0-102.782,0-147.334,0c-3.999,0-4-16.002,0-16.002
+      values="M173.667-13.94c-49.298,0-102.782,0-147.334,0c-3.999,0-4-16.002,0-16.002
 c44.697,0,96.586,0,147.334,0C177.667-29.942,177.668-13.94,173.667-13.94z;
 M173.667,411.567c-47.995,12.408-102.955,12.561-147.334,0
 c-3.848-1.089-0.189-16.089,3.661-15.002c44.836,12.66,90.519,12.753,139.427,0.07
@@ -475,15 +415,10 @@ c46.385,0,97.539,0,147.334,0C177.668,411.567,177.667,427.569,173.667,427.569z" /
   <path fill="#d95d80" d="M100-178.521c1.858,0,3.364,1.506,3.364,3.363c0,0,0,33.17,0,44.227
 c0,19.144,0,57.431,0,76.574c0,10.152,0,40.607,0,40.607c0,1.858-1.506,3.364-3.364,3.364l0,0c-1.858,0-3.364-1.506-3.364-3.364c0,0,0-30.455,0-40.607c0-19.144,0-57.432,0-76.575c0-11.057,0-44.226,0-44.226C96.636-177.015,98.142-178.521,100-178.521
 L100-178.521z">
-    <animate id="relleno_2"
-      attributeName="d"
-      calcMode="spline"
-      keySplines="0 0 1 1; 0 0 1 1; 0 0 0.58 1"
-      begin="bizcocho_2.end"
-      dur="0.5s"
-      fill="freeze"
-      values="
-M100-178.521c1.858,0,3.364,1.506,3.364,3.363c0,0,0,33.17,0,44.227
+    <animate id="relleno_2" attributeName="d" calcMode="spline"
+      keySplines="0 0 1 1; 0 0 1 1; 0 0 0.58 1" begin="bizcocho_2.end"
+      dur="0.5s" fill="freeze"
+      values="M100-178.521c1.858,0,3.364,1.506,3.364,3.363c0,0,0,33.17,0,44.227
 c0,19.144,0,57.431,0,76.574c0,10.152,0,40.607,0,40.607c0,1.858-1.506,3.364-3.364,3.364l0,0c-1.858,0-3.364-1.506-3.364-3.364c0,0,0-30.455,0-40.607c0-19.144,0-57.432,0-76.575c0-11.057,0-44.226,0-44.226C96.636-177.015,98.142-178.521,100-178.521
 L100-178.521z;
 M100,267.257c1.858,0,3.364,1.506,3.364,3.363c0,0,0,33.17,0,44.227
@@ -501,20 +436,15 @@ c-1.858,0-67.187,0-73.667,0c0,0-4.125-4.983,0-7.823c5.201-3.58,16.085,0,23.725,0
 
   <path fill="#f28da8" d="M173.667-15.929c-46.512,0-105.486,0-147.334,0c-3.999,0-4-16.002,0-16.002
 c43.566,0,97.96,0,147.334,0C177.667-31.931,177.666-15.929,173.667-15.929z">
-    <animate id="bizcocho_2"
-      attributeName="d"
-      calcMode="spline"
+    <animate id="bizcocho_2" attributeName="d" calcMode="spline"
       keySplines="0 0 1 1; 0 0 1 1; 0.25 0 0.58 1"
-      begin="relleno_1.end"
-      dur="0.5s"
-      fill="freeze"
-      values="
-M173.667-15.929c-46.512,0-105.486,0-147.334,0c-3.999,0-4-16.002,0-16.002
+      begin="relleno_1.end" dur="0.5s" fill="freeze"
+      values="M173.667-15.929c-46.512,0-105.486,0-147.334,0c-3.999,0-4-16.002,0-16.002
 c43.566,0,97.96,0,147.334,0C177.667-31.931,177.666-15.929,173.667-15.929z;
 M173.434,445.393c-47.269,8.001-105.245,8.001-147.334,0c-3.929-0.747-0.692-16.543,3.243-15.824
 c43.828,8.001,92.165,8.001,140.739,0C174.029,428.918,177.377,444.726,173.434,445.393z;
 M173.667,449.514c-47.576-5.454-102.799-5.744-147.333,0c-3.966,0.512-3.938-15.297,0-16.002
-c43.683-7.823,97.646-8.026,147.333,0C177.616,434.15,177.642,449.969,173.667,449.514z;
+c43.683-7.823,97.646-8.026,147.333,0.026C177.616,434.15,177.642,449.969,173.667,449.514z;
 M173.667,451.394c-49.298,0-102.782,0-147.334,0c-3.999,0-4-16.002,0-16.002
 c44.697,0,96.586,0,147.334,0C177.667,435.392,177.668,451.394,173.667,451.394z" />
   </path>
@@ -522,15 +452,10 @@ c44.697,0,96.586,0,147.334,0C177.667,435.392,177.668,451.394,173.667,451.394z" /
   <path fill="#d95d80" d="M101.368-73.685c0,12.164,0,15.18,0,28.519c0,22.702,0-13.661,0,8.304c0,14.48,0,18.233,0,30.512
 c0,1.753-2.958,1.847-2.958,0c0-12.68,0-16.277,0-30.401c0-21.983,0,11.66,0-8.305c0-13.027,0-15.992,0-28.628
 C98.411-75.883,101.368-75.592,101.368-73.685z">
-    <animate id="relleno_1"
-      attributeName="d"
-      calcMode="spline"
+    <animate id="relleno_1" attributeName="d" calcMode="spline"
       keySplines="0 0 1 1; 0 0 1 1; 0 0 0.6 1"
-      begin="bizcocho_1.end"
-      dur="0.5s"
-      fill="freeze"
-      values="
-M101.368-73.685c0,12.164,0,15.18,0,28.519c0,22.702,0-13.661,0,8.304c0,14.48,0,18.233,0,30.512
+      begin="bizcocho_1.end" dur="0.5s" fill="freeze"
+      values="M101.368-73.685c0,12.164,0,15.18,0,28.519c0,22.702,0-13.661,0,8.304c0,14.48,0,18.233,0,30.512
 c0,1.753-2.958,1.847-2.958,0c0-12.68,0-16.277,0-30.401c0-21.983,0,11.66,0-8.305c0-13.027,0-15.992,0-28.628
 C98.411-75.883,101.368-75.592,101.368-73.685z;
 M101.368,350.885c0,12.164,0,65.18,0,78.518c0,22.703,0-33.66,0-11.695c0,14.48,0,28.232,0,40.512
@@ -546,15 +471,10 @@ c-4.109,.65-3.01-10.006,0-10.006C37.129,451.394,149.379,451.394,173.667,451.394z
 
   <path fill="#f28da8" d="M173.667,21.571c-33.174,0-111.467,0-147.334,0c-4,0-4-16.002,0-16.002c39.836,0,105.982,0,147.334,0
 C177.668,5.569,177.667,21.571,173.667,21.571z">
-    <animate id="bizcocho_1"
-      attributeName="d"
-      calcMode="spline"
+    <animate id="bizcocho_1" attributeName="d" calcMode="spline"
       keySplines="0 0 1 1; 0 0 1 1; 0 0 1 1; 0.25 0 1 1; 0 0 1 1; 0.25 0 0.6 1"
-      begin="2s"
-      dur="0.8s"
-      fill="freeze"
-      values="
-M173.667,21.571c-33.174,0-111.467,0-147.334,0c-4,0-4-16.002,0-16.002c39.836,0,105.982,0,147.334,0
+      begin="2s" dur="0.8s" fill="freeze"
+      values="M173.667,21.571c-33.174,0-111.467,0-147.334,0c-4,0-4-16.002,0-16.002c39.836,0,105.982,0,147.334,0
 C177.668,5.569,177.667,21.571,173.667,21.571z;
 M173.667,459.569c-33.197,16.002-110.782,16.002-147.334,0c-3.664-1.604,1.614-15.617,5.337-14.153
 c40.702,16.002,94.289,16.104,136.505,.103C171.917,444.1,177.271,457.832,173.667,459.569z;
@@ -574,15 +494,10 @@ C177.667,459.569,177.666,475.571,173.667,475.571z" />
 c0-5.143,0-15.427,0-20.568c0-7.333,0-21.998,0-29.33c0-5.523,0-16.569,0-22.092c0-3.295,0-9.885,0-13.181
 C95.188,2.551,97.353,0,100,0c2.648,0,4.812,2.551,4.812,5.669c0,3.248,0,9.743,0,12.991c0,5.428,0,16.284,0,21.711
 c0,7.618,0,22.854,0,30.472c0,4.952,0,14.854,0,19.807C104.812,96.292,104.812,107.576,104.812,113.216z">
-    <animate id="crema"
-      attributeName="d"
-      calcMode="spline"
+    <animate id="crema" attributeName="d" calcMode="spline"
       keySplines="0 0 1 1; 0 0 1 1; 0 0 1 1; 0.25 0 1 1; 0 0 1 1; 0.25 0 0.58 1"
-      begin="bizcocho_3.end"
-      dur="2s"
-      fill="freeze"
-      values="
-M104.812,113.216c0,3.119-2.164,5.67-4.812,5.67c-2.646,0-4.812-2.551-4.812-5.67c0-5.594,0-16.782,0-22.375
+      begin="bizcocho_3.end" dur="2s" fill="freeze"
+      values="M104.812,113.216c0,3.119-2.164,5.67-4.812,5.67c-2.646,0-4.812-2.551-4.812-5.67c0-5.594,0-16.782,0-22.375
 c0-5.143,0-15.427,0-20.568c0-7.333,0-21.998,0-29.33c0-5.523,0-16.569,0-22.092c0-3.295,0-9.885,0-13.181
 C95.188,2.551,97.353,0,100,0c2.648,0,4.812,2.551,4.812,5.669c0,3.248,0,9.743,0,12.991c0,5.428,0,16.284,0,21.711
 c0,7.618,0,22.854,0,30.472c0,4.952,0,14.854,0,19.807C104.812,96.292,104.812,107.576,104.812,113.216z;
@@ -624,22 +539,18 @@ c-7.606-.447-6.058-37.895-20.62-23.333c-10.167,10.166-15.972-.747-25,12C119.547,
   <h1>happy birthday, baby ko!</h1>
 </div>
 
-<!-- LETTER BUTTON -->
 <button class="letter-button" id="letterButton">
   click here baby ♡
 </button>
 
-<!-- BIRTHDAY LETTER -->
 <div class="letter-overlay" id="letterOverlay">
   <div class="letter-card">
     <button class="close-letter" id="closeLetter" aria-label="Close letter">&times;</button>
-
     <h2>Para sakong asawa na gwapa ug maldita kayo</h2>
-
     <p>
 Happy birthday, baby nako!
 
-I'm not really good at expressing my feelings through words because I'm not used to it jud. Daghan kayko gusto iingun jud, but I'll try my best to put everything into words. It's not that I don't know how to express myself, it's just that showing my vulnerable side has never really been my thing. I'm the kind of person who usually keeps things to myself, bisag there's so much going on inside my mind. But somehow, you made that side of me come out naturally, and I genuinely love this version of myself because of you. 
+I'm not really good at expressing my feelings through words because I'm not used to it jud. Daghan kayko gusto iingun jud, but I'll try my best to put everything into words. It's not that I don't know how to express myself, it's just that showing my vulnerable side has never really been my thing. I'm the kind of person who usually keeps things to myself, bisag there's so much going on inside my mind. But somehow, you made that side of me come out naturally, and I genuinely love this version of myself because of you.
 
 I don't always express my feelings like perfect jud, and sometimes I struggle to find the right words, especially when it comes to giving you the words of affirmation you deserve. But I'm trying my best because I know how much those words mean to you. I'm learning to express what I feel instead of keeping everything to myself. Honestly, I never imagined myself becoming this expressive or being this comfortable showing my vulnerable side to someone. But with you, it feels natural. You made me discover a side of myself that I never thought existed. And siguro pud gusto jud kayo nako ni mag work maong ginabuhat nako tanan, because mahadlok pud ko na mawala ikaw, love.
 
@@ -662,12 +573,11 @@ And since it's your special day, I have so many wishes for you jud palangging uy
 
 I hope you never lose the happiness in doing the things you love. I hope you get everything you've been praying for, even those little things you sometimes don't talk about. And whenever you feel tired, I hope you allow yourself to rest without feeling guilty. You don't always have to be strong or have everything figured out. I'll always be proud of you, whatever stage of life you're in.
 
-And please, don't forget that you always have me sa tanan. Whatever happens, whether things are going well or life gets a little difficult, I'm here for you, as always. You don't have to go through everything alone because you have someone you can always lean on. I'll always be here to support you, listen to you, and remind you that you're loved. I may not have all the answers or be able to fix everything, but I'll always do my best to understand you and be by your side. 
+And please, don't forget that you always have me sa tanan. Whatever happens, whether things are going well or life gets a little difficult, I'm here for you, as always. You don't have to go through everything alone because you have someone you can always lean on. I'll always be here to support you, listen to you, and remind you that you're loved. I may not have all the answers or be able to fix everything, but I'll always do my best to understand you and be by your side.
 
-Heh ga balik2 nako but anywaysss, and of course, I wish for us to celebrate many more birthdays together. I want to be there for your next birthdays and all the ones after that. I want to see you grow, achieve your dreams, and experience all the things you've always wanted. I hope I get to be beside you through all those moments. There's still so much ahead of us, and I look forward to experiencing all of it with you. 
+Heh ga balik2 nako but anywaysss, and of course, I wish for us to celebrate many more birthdays together. I want to be there for your next birthdays and all the ones after that. I want to see you grow, achieve your dreams, and experience all the things you've always wanted. I hope I get to be beside you through all those moments. There's still so much ahead of us, and I look forward to experiencing all of it with you.
 
-I love you, my Lover. Today, tomorrow, and in all the ordinary days in between. Happy 24th birthday, my pretty maldita princess. Forever and always. 
-
+I love you, my Lover. Today, tomorrow, and in all the ordinary days in between. Happy 24th birthday, my pretty maldita princess. Forever and always.
 
 With love,
 Asawa nimo ♡
@@ -680,6 +590,20 @@ Asawa nimo ♡
 <script>
 let blown = false;
 
+const cake = document.getElementById('cake');
+const candle = document.getElementById('candle');
+
+/* KEEP CANDLE ALIGNED WITH CAKE */
+function positionCandle() {
+  const cakePosition = cake.getBoundingClientRect();
+
+  candle.style.left =
+    (cakePosition.left + cakePosition.width / 2) + 'px';
+
+  candle.style.top =
+    (cakePosition.top + cakePosition.height * 0.79) + 'px';
+}
+
 function blow() {
   if (blown || performance.now() < 8000) return;
 
@@ -687,17 +611,15 @@ function blow() {
   document.body.classList.add('blown');
   document.getElementById('hint').classList.add('hidden');
 
-  const candle = document.getElementById('candle');
   const smoke = document.createElement('span');
-
   smoke.className = 'smoke';
   candle.appendChild(smoke);
 
   confetti();
 }
 
-document.getElementById('cake').addEventListener('pointerdown', blow);
-document.getElementById('candle').addEventListener('pointerdown', blow);
+cake.addEventListener('pointerdown', blow);
+candle.addEventListener('pointerdown', blow);
 
 document.addEventListener('keydown', e => {
   if (e.key === 'Enter' || e.key === ' ') {
@@ -723,7 +645,7 @@ closeLetter.addEventListener('click', () => {
 });
 
 /* CLOSE WHEN CLICKING OUTSIDE THE CARD */
-letterOverlay.addEventListener('click', (event) => {
+letterOverlay.addEventListener('click', event => {
   if (event.target === letterOverlay) {
     letterOverlay.classList.remove('show');
   }
@@ -782,6 +704,14 @@ function confetti() {
 
   animateConfetti();
 }
+
+/* UPDATE CANDLE POSITION ON LOAD AND SCREEN CHANGES */
+window.addEventListener('load', positionCandle);
+window.addEventListener('resize', positionCandle);
+window.addEventListener('orientationchange', positionCandle);
+
+/* POSITION AFTER THE CAKE'S RESPONSIVE SIZE IS APPLIED */
+positionCandle();
 </script>
 
 </body>
